@@ -51,15 +51,18 @@ Each table includes primary keys, foreign keys, and appropriate data types to en
 
 ### **Steps 1–6: Schema Creation & Data Population**
 
-- Created all required tables with primary keys, foreign keys, and constraints, including a `CHECK` constraint to prevent negative inventory quantities.  
+- Created all required tables with primary keys, foreign keys, and constraints, including a `CHECK` constraint to prevent negative inventory quantities.
+**CHECK Constraint**    
 ![Step 4 – CHECK Constraint](Screenshots/Step4_CHECK%20Constraint.png)
 
 - Inserted sample data for customers, products, orders, order items, and inventory.
 
-- Created a view to generate receipt totals using common aggregate functions.  
+- Created a view to generate receipt totals using common aggregate functions.
+**View**    
 ![Step 5 – View](Screenshots/Step5_View.png)
 
-- Built stored procedures for common retail sales metrics, including filtering with multiple parameters.  
+- Built stored procedures for common retail sales metrics, including filtering with multiple parameters.
+**Example Procedure With 2 Parameters**   
 ![Step 6 – Procedure With 2 Parameters](Screenshots/Step6_Procedure%20With%202%20Parameters.png)
 
 - Created stored procedures to generate multiple receipt types:  
@@ -85,6 +88,7 @@ A trigger was created to automatically uppercase last names whenever a customer 
 #### **Part 3 – Trigger Testing**  
 A test insert was wrapped in a transaction and rolled back to keep the table clean.
 
+**Trigger**  
 ![Step 7 – Trigger Update LastName](Screenshots/Step7_Trigger%20Update%20LastName.png)
 
 ---
@@ -101,6 +105,7 @@ A full transaction block was created to ensure that orders cannot be placed for 
 
 This demonstrates atomicity and real‑world retail logic.
 
+**transaction**  
 ![Step 8 – Transaction Check Quantity](Screenshots/Step8_Transaction%20Check%20Quantity.png)
 
 ---
@@ -113,7 +118,7 @@ Two SQL Server logins and database users were created:
 - **StaffUser** → read‑only (`db_datareader`)  
 
 Verification queries were used to confirm role membership.
-
+**Login And User Creation**  
 ![Step 9 – Login And User](Screenshots/Step9_Login%20And%20User.png)
 
 ---
@@ -123,6 +128,7 @@ Verification queries were used to confirm role membership.
 A full `.bak` backup of the database was created using a T‑SQL backup command.  
 This demonstrates backup and recovery readiness.
 
+**Backup**  
 ![Step 10 – Backup](Screenshots/Step10_Backup.png)
 
 ---
@@ -175,8 +181,6 @@ Microsoft Certified: Azure, AI, and Data Fundamentals
 ---
 
 ## **📁 Recommended Repository Structure**
-
-
 
 ```
 /FinalProject_TaraStevens
