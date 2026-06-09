@@ -37,8 +37,6 @@ The database includes the following core tables:
 
 Each table includes primary keys, foreign keys, and appropriate data types to ensure referential integrity.
 
-### **Schema Screenshots**
-
 **Five Core Tables Created**  
 ![Step 1 – Five Tables](Screenshots/Step1_Five%20Tables.png)
 
@@ -47,33 +45,49 @@ Each table includes primary keys, foreign keys, and appropriate data types to en
 
 ---
 
-## **🧩 Step‑by‑Step Implementation**
+## 🧩 Step 1 to 6 Implementation
 
-### **Steps 1–6: Schema Creation & Data Population**
+#### ✅ Created Tables and Constraints
+Built all required tables with primary keys, foreign keys, and a `CHECK` constraint to prevent negative inventory quantities.
 
-- Created all required tables with primary keys, foreign keys, and constraints, including a `CHECK` constraint to prevent negative inventory quantities.
-**CHECK Constraint**    
-![Step 4 – CHECK Constraint](Screenshots/Step4_CHECK%20Constraint.png)
+**CHECK Constraint Example**
+  
+![Step 4 – CHECK Constraint](Screenshots/Step4_CHECK%20constraint.png)
 
-- Inserted sample data for customers, products, orders, order items, and inventory.
+---
 
-- Created a view to generate receipt totals using common aggregate functions.
-**View**    
-![Step 5 – View](Screenshots/Step5_View.png)
+#### 🧾 Inserted Sample Data
+Populated the database with sample customers, products, orders, order items, and inventory records.
 
-- Built stored procedures for common retail sales metrics, including filtering with multiple parameters.
-**Example Procedure With 2 Parameters**   
-![Step 6 – Procedure With 2 Parameters](Screenshots/Step6_Procedure%20With%202%20Parameters.png)
+---
 
-- Created stored procedures to generate multiple receipt types:  
-  - Traditional join output  
-  - Readable formatted receipt  
-  - ASCII‑style receipt  
+#### 📊 Created View for Receipt Totals
+Designed a view using aggregate functions to calculate order totals.
 
-*(ASCII‑style receipt example)*  
-![ASCII Receipt](Screenshots/ASCII_Style%20Receipt.png)
+**View Example**
+  
+![Step 5 – View](Screenshots/Step5_View.png)
 
-- Ensured normalization and a clean relational structure.
+---
+
+#### ⚙️ Built Stored Procedures
+Developed stored procedures for retail sales metrics, including filtering with multiple parameters.
+
+**Example Procedure With 2 Parameters**
+  
+![Step 6 – Procedure With 2 Parameters](Screenshots/Step6_Procedure%20With%202%20Parameters.png)
+
+---
+
+#### 🧾 Generated Receipt Formats
+Created stored procedures to produce multiple receipt types:
+- Traditional join output  
+- Readable formatted receipt  
+- ASCII‑style receipt  
+
+**ASCII Style Receipt**
+  
+![ASCII Receipt](Screenshots/ASCII_Style%20Receipt.png)
 
 ---
 
@@ -89,7 +103,7 @@ A trigger was created to automatically uppercase last names whenever a customer 
 A test insert was wrapped in a transaction and rolled back to keep the table clean.
 
 **Trigger**  
-![Step 7 – Trigger Update LastName](Screenshots/Step7_Trigger%20Update%20LastName.png)
+![Step 7 – Trigger Update LastName](Screenshots/Step7_Trigger%20Update%20Lastname.png)
 
 ---
 
@@ -105,7 +119,7 @@ A full transaction block was created to ensure that orders cannot be placed for 
 
 This demonstrates atomicity and real‑world retail logic.
 
-**transaction**  
+**Transaction**  
 ![Step 8 – Transaction Check Quantity](Screenshots/Step8_Transaction%20Check%20Quantity.png)
 
 ---
@@ -118,6 +132,7 @@ Two SQL Server logins and database users were created:
 - **StaffUser** → read‑only (`db_datareader`)  
 
 Verification queries were used to confirm role membership.
+
 **Login And User Creation**  
 ![Step 9 – Login And User](Screenshots/Step9_Login%20And%20User.png)
 
@@ -195,10 +210,10 @@ Microsoft Certified: Azure, AI, and Data Fundamentals
 ├── Screenshots/
 │   ├── Step1_Five Tables.png
 │   ├── Step2_ProduceRetailDB Diagram.png
-│   ├── Step4_CHECK Constraint.png
+│   ├── Step4_CHECK constraint.png
 │   ├── Step5_View.png
 │   ├── Step6_Procedure With 2 Parameters.png
-│   ├── Step7_Trigger Update LastName.png
+│   ├── Step7_Trigger Update Lastname.png
 │   ├── Step8_Transaction Check Quantity.png
 │   ├── Step9_Login And User.png
 │   └── Step10_Backup.png
