@@ -4,6 +4,11 @@ A SQL Server database project demonstrating schema design, data integrity, trans
 
 ---
 
+## 🎥 **Demonstration Video (Coming Soon)**  
+*This section will contain a link to the final project walkthrough video once recorded.*
+
+---
+
 ## **📌 Project Overview**
 
 ProduceRetailDB is a fully designed SQL Server database created for a comprehensive SQL II final project. The goal was to build a functional retail management system that supports customers, orders, products, and inventory workflows while demonstrating real‑world database concepts such as:
@@ -32,6 +37,14 @@ The database includes the following core tables:
 
 Each table includes primary keys, foreign keys, and appropriate data types to ensure referential integrity.
 
+### **Schema Screenshots**
+
+**Five Core Tables Created**  
+![Step 1 – Five Tables](Screenshots/Step1_Five%20Tables.png)
+
+**Database Diagram Showing Relationships**  
+![Step 2 – ProduceRetailDB Diagram](Screenshots/Step2_ProduceRetailDB%20Diagram.png)
+
 ---
 
 ## **🧩 Step‑by‑Step Implementation**
@@ -39,9 +52,24 @@ Each table includes primary keys, foreign keys, and appropriate data types to en
 ### **Steps 1–6: Schema Creation & Data Population**
 
 - Created all required tables with primary keys, foreign keys, and constraints, including a `CHECK` constraint to prevent negative inventory quantities.  
-- Inserted sample data for customers, products, orders, order items, and inventory.  
+![Step 4 – CHECK Constraint](Screenshots/Step4_CHECK%20Constraint.png)
+
+- Inserted sample data for customers, products, orders, order items, and inventory.
+
 - Created a view to generate receipt totals using common aggregate functions.  
-- Built multiple stored procedures for common retail sales metrics, including filtering with multiple parameters.  
+![Step 5 – View](Screenshots/Step5_View.png)
+
+- Built stored procedures for common retail sales metrics, including filtering with multiple parameters.  
+![Step 6 – Procedure With 2 Parameters](Screenshots/Step6_Procedure%20With%202%20Parameters.png)
+
+- Created stored procedures to generate multiple receipt types:  
+  - Traditional join output  
+  - Readable formatted receipt  
+  - ASCII‑style receipt  
+
+*(ASCII‑style receipt example)*  
+![ASCII Receipt](Screenshots/ASCII_Style%20Receipt.png)
+
 - Ensured normalization and a clean relational structure.
 
 ---
@@ -57,6 +85,8 @@ A trigger was created to automatically uppercase last names whenever a customer 
 #### **Part 3 – Trigger Testing**  
 A test insert was wrapped in a transaction and rolled back to keep the table clean.
 
+![Step 7 – Trigger Update LastName](Screenshots/Step7_Trigger%20Update%20LastName.png)
+
 ---
 
 ### **Step 8: Inventory‑Safe Order Transaction**
@@ -71,6 +101,8 @@ A full transaction block was created to ensure that orders cannot be placed for 
 
 This demonstrates atomicity and real‑world retail logic.
 
+![Step 8 – Transaction Check Quantity](Screenshots/Step8_Transaction%20Check%20Quantity.png)
+
 ---
 
 ### **Step 9: Security – Admin & Staff Users**
@@ -82,6 +114,8 @@ Two SQL Server logins and database users were created:
 
 Verification queries were used to confirm role membership.
 
+![Step 9 – Login And User](Screenshots/Step9_Login%20And%20User.png)
+
 ---
 
 ### **Step 10: Database Backup**
@@ -89,18 +123,20 @@ Verification queries were used to confirm role membership.
 A full `.bak` backup of the database was created using a T‑SQL backup command.  
 This demonstrates backup and recovery readiness.
 
+![Step 10 – Backup](Screenshots/Step10_Backup.png)
+
 ---
 
 ## **🧭 Step 13: Future Improvements**
 
 If I had additional time to continue developing the ProduceRetailDB project, I would focus on expanding its functionality and refining its design for real‑world use. Some key improvements would include:
 
-- **Enhanced Data Relationships:** Introduce additional foreign‑key constraints and cascading updates to strengthen referential integrity between tables such as `Orders`, `OrderItems`, and `Inventory`.  
-- **Stored Procedures and Views:** Replace repetitive queries with stored procedures for common operations (e.g., placing an order, updating stock) and create views for simplified reporting.  
-- **User Interface Integration:** Connect the database to a front‑end application using Python or C# to allow staff to manage customers and inventory through a graphical interface.  
-- **Automated Backups and Error Handling:** Schedule regular backups and add error‑handling logic to transactions to improve reliability.  
-- **Analytics and Reporting:** Implement summary tables or Power BI dashboards to visualize sales trends and inventory levels.  
-- **Security Enhancements:** Add role‑based permissions beyond `db_owner` and `db_datareader`, such as a `db_datawriter` role for staff who need limited update access.
+- **Enhanced Data Relationships:** Add cascading updates and additional foreign‑key constraints.  
+- **Stored Procedures and Views:** Expand reusable procedures for order placement, stock updates, and reporting.  
+- **User Interface Integration:** Connect the database to a front‑end application (Python, C#, or web).  
+- **Automated Backups and Error Handling:** Schedule backups and improve transaction error handling.  
+- **Analytics and Reporting:** Add summary tables or Power BI dashboards.  
+- **Security Enhancements:** Introduce more granular role‑based permissions.
 
 These improvements would make the database more scalable, secure, and user‑friendly by transforming it from a classroom project into a production‑ready retail management system.
 
@@ -140,24 +176,26 @@ Microsoft Certified: Azure, AI, and Data Fundamentals
 
 ## **📁 Recommended Repository Structure**
 
+
+
 ```
 /FinalProject_TaraStevens
 │
 ├── README.md
 ├── ProduceRetailDB.sql
 ├── CommonRetail_StoredProcedures_Produce.sql
-├── GenerateReceiot_StoredProcedurs_Produce.sql
+├── GenerateReceipt_StoredProcedures_Produce.sql
 ├── ASCII_Style_StoredProcedures_Produce.sql
 ├── ProduceRetailDB.bak
+├── Demo_Video.mp4
 ├── Screenshots/
-│   ├── Step1_FiveTables.png
-│   ├── Step2_ProduceRetailDB_Diagram.png
-│   ├── Step4_CHECK_Constraint.png
+│   ├── Step1_Five Tables.png
+│   ├── Step2_ProduceRetailDB Diagram.png
+│   ├── Step4_CHECK Constraint.png
 │   ├── Step5_View.png
-│   ├── Step6_ProcedureWithParameters.png
-│   ├── Step7_Trigger_UpdateLastName.png
-│   ├── Step8_Transaction_CheckQuantity.png
-│   ├── Step9_LoginAndUser.png
+│   ├── Step6_Procedure With 2 Parameters.png
+│   ├── Step7_Trigger Update LastName.png
+│   ├── Step8_Transaction Check Quantity.png
+│   ├── Step9_Login And User.png
 │   └── Step10_Backup.png
-└── documentation/
 ```
