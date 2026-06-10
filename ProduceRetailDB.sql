@@ -6,7 +6,7 @@
    Quarter: Spring 2026
    
    Title: ProduceRetailDB
-   Purpose: A sample database for a fruits & veggies retail business.
+   Purpose: A simple database for a fruits & veggies retail business.
             The database includes five core tables (Customers, Products,
             Orders, OrderItems, and Inventory) and is populated with realistic
             sample data. The schema follows best practices, including IDENTITY
@@ -266,12 +266,11 @@ VALUES
 GO
 
 /* Generate 100 Randomized Orders
-   • CustomerIDs 1–53 (existing customers)
+   • CustomerIDs 1–75 with at least one order.
    • Randomized dates between Jan–Apr 2026
    • Randomized delivery fees (0 for in-store, 4.99–9.99 for online)
    • Randomized subtotals between $9.99–$39.99
-   • Fixed seed (12345) ensures identical results every run 
-   • Ensures all 53 customers have at least one order. */
+   • Fixed seed (12345) ensures identical results every run. */
 
 DECLARE @Seed INT = 12345;
 
@@ -307,7 +306,7 @@ SELECT TOP 200
     FLOOR(RAND(@Seed + CHECKSUM(NEWID())) * 10) + 1 AS Quantity,  -- 1–10 units
     p.ListPrice
 FROM dbo.Orders AS o
-CROSS JOIN dbo.Products AS p
+    CROSS JOIN dbo.Products AS p
 ORDER BY NEWID();
 
 /* Guarantee full product coverage

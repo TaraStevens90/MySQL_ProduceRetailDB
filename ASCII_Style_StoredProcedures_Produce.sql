@@ -56,26 +56,26 @@ BEGIN
                  FROM ReceiptData rd
         UNION ALL SELECT '------------------------------------------'
         UNION ALL SELECT
-                    LEFT('Subtotal:' + REPLICATE(' ', 32), 32) +
-                    RIGHT(REPLICATE(' ', 10) + FORMAT(rd.Subtotal, 'C2'), 10)
-                  FROM ReceiptData rd
-                  GROUP BY rd.Subtotal
+            LEFT('Subtotal:' + REPLICATE(' ', 32), 32) +
+            RIGHT(REPLICATE(' ', 10) + FORMAT(SUM(rd.Quantity * rd.Price), 'C2'), 10)
+        FROM ReceiptData rd
+        GROUP BY rd.OrderID
+
         UNION ALL SELECT
-                    LEFT('Delivery Fee:' + REPLICATE(' ', 32), 32) +
-                    RIGHT(REPLICATE(' ', 10) + FORMAT(rd.DeliveryFee, 'C2'), 10)
-                  FROM ReceiptData rd
-                  GROUP BY rd.DeliveryFee
+            LEFT('Delivery Fee:' + REPLICATE(' ', 32), 32) +
+            RIGHT(REPLICATE(' ', 10) + FORMAT(MAX(rd.DeliveryFee), 'C2'), 10)
+        FROM ReceiptData rd
+        GROUP BY rd.OrderID
+
         UNION ALL SELECT
-                    LEFT('Total Amount:' + REPLICATE(' ', 32), 32) +
-                    RIGHT(REPLICATE(' ', 10) + FORMAT(rd.Subtotal + rd.DeliveryFee, 'C2'), 10)
-                  FROM ReceiptData rd
-                  GROUP BY rd.Subtotal, rd.DeliveryFee
-        UNION ALL SELECT '=========================================='
-        UNION ALL SELECT 'Printed on:            ' + FORMAT(GETDATE(), 'yyyy-MM-dd hh:mm tt');
+            LEFT('Total Amount:' + REPLICATE(' ', 32), 32) +
+            RIGHT(REPLICATE(' ', 10) + FORMAT(SUM(rd.Quantity * rd.Price) + MAX(rd.DeliveryFee), 'C2'), 10)
+        FROM ReceiptData rd
+        GROUP BY rd.OrderID
 END;
 GO
 
 /* Example execution */
-EXEC GetReceiptPaperASCII @OrderID = 18;
+EXEC GetReceiptPaperASCII @OrderID = 203;
 GO
 

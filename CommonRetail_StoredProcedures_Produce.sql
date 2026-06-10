@@ -35,7 +35,7 @@ END;
 GO
 
 /* Example with random date: */
-EXEC GetDailySalesSummary '2026-03-18';
+EXEC GetDailySalesSummary '2026-03-21';
 GO
 
 /* Weekly Sales Summary: Returns total orders, total sales, and

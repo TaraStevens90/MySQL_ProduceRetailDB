@@ -42,7 +42,7 @@ END;
 GO
 
 /* Example execution: */
-EXEC GetReceiptTraditional 212;
+EXEC GetReceiptTraditional 45;
 GO
 
 /* Procedure 2: Readable receipt output
@@ -92,5 +92,5 @@ END;
 GO
 
 /* Example execution: */
-EXEC GetReceiptReadable 212;
+EXEC GetReceiptReadable 45;
 GO
