@@ -4,8 +4,11 @@ A SQL Server database project demonstrating schema design, data integrity, trans
 
 ---
 
-## 🎥 **Demonstration Video (Coming Soon)**  
-*This section will contain a link to the final project walkthrough video once recorded.*
+## 🎥 Project Walkthrough Video
+
+This video provides a complete demonstration of the Produce Retail Database:
+
+▶️ **[Watch the full walkthrough](./ProduceRetailDB_Walkthrough.mp4)** 
 
 ---
 
